@@ -1,0 +1,22 @@
+<h1>Welcome to the world of My Blog!</h1>
+<br>
+
+{% if not user.is_authenticated %}
+<p><a href="{% url 'myblog:sign_up' %}">Sign up</a></p>
+<p><a href="{% url 'myblog:sign_in' %}">Sign in</a></p>
+    <br>
+{% else %}
+<p>Hello {{ user.first_name}} {{ user.last_name }}</p>
+<p><a href="{% url 'myblog:my_blogs' %}">My Blogs</a></p>
+<p><a href="{% url 'myblog:sign_out' %}">Sign out</a></p>
+{% endif %}
+
+{% if object_list %}
+    <ul>
+    {% for blog in object_list %}
+        <li><a href="{% url 'myblog:blog' blog.id %}">{{ blog.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No blogs are available.</p>
+{% endif %}

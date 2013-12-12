@@ -1,0 +1,9 @@
+<form name="input" action="{% url 'myblog:share_blog_act' %}" method="post">
+{% csrf_token %}
+<input type="hidden" name="blog_id" value="{{ blog_id }}">
+The usernames of people you want to share this blog with. Comma separated. <br>
+<input type="text" name="usernames", value="{{ authors }}">
+<input type="submit" value="Share it!" /><br>
+</form>
+
+<p><a href="{% url 'myblog:index' %}">Return</a></p>

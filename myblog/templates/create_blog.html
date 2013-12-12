@@ -1,0 +1,7 @@
+<form name="input" action="{% url 'myblog:create_blog_act' %}" method="post">
+{% csrf_token %}
+Name of the blog: <input type="text" name="name">
+<input type="submit" value="Create!" /><br>
+</form>
+
+<p><a href="{% url 'myblog:index' %}">Return</a></p>

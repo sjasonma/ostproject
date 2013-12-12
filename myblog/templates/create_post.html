@@ -1,0 +1,12 @@
+<form name="input" action="{% url 'myblog:create_post_act' %}" method="post">
+{% csrf_token %}
+<input type="hidden" name="blog_id" value="{{ blog_id }}">
+Title: <input type="text" name="title">
+<input type="submit" value="Post!" /><br>
+Tags(Comma separated):<br>
+<input type="text" name="tags"><br>
+
+<textarea cols="40" rows="5" name="body">Enter text here...</textarea>
+</form>
+
+<p><a href="{% url 'myblog:index' %}">Return</a></p>
